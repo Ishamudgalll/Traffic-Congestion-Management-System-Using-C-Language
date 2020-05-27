@@ -1,0 +1,938 @@
+#include<stdio.h>
+#include<conio.h>
+#include<graphics.h>
+#include<dos.h>
+#include<stdlib.h>
+#include <time.h>
+
+
+
+int a,b,c,d;
+int trafic(int x,int y);
+int timer(int x,int y,int b);
+int draw_cir(int x,int y);
+int cir_gr(int x,int y);
+int draw();
+int call();
+
+
+
+
+void main()
+{
+
+
+
+
+int gd=DETECT,gm,midx,midy,i,j;
+char rut[5],e,lift[25],emer[5];
+initgraph(&gd,&gm,"c:\\TURBOC3\\bgi");
+midx = getmaxx()/2;
+midy = getmaxy()/2;
+/*
+setcolor(WHITE);
+settextstyle(SCRIPT_FONT, HORIZ_DIR, 3);
+settextjustify(CENTER_TEXT, CENTER_TEXT);
+outtextxy(midx, midy-10, "project to get rid of traffic jam");
+outtextxy(midx, midy+10, "Press any key to start");
+settextstyle(BOLD_FONT, HORIZ_DIR, 3);
+outtextxy(midx, midy+40, "what do u want???");
+outtextxy(midx, midy+80, "1   DEMO");
+outtextxy(midx+10, midy+120," 2   LIVE");
+
+
+
+sound(130);
+delay(2000);
+
+nosound();
+
+e=getche();
+
+
+if(e=='1')
+{
+cleardevice();
+setcolor(WHITE);
+settextstyle(SCRIPT_FONT, HORIZ_DIR, 3);
+settextjustify(CENTER_TEXT, CENTER_TEXT);
+outtextxy(midx, midy-10, "cars count from last signals");
+outtextxy(midx, midy+10, "open from previous light = ");
+settextstyle(BOLD_FONT, HORIZ_DIR, 3);
+outtextxy(midx, midy+40, "sensor detection");
+i=0;
+settextstyle(0, HORIZ_DIR, 3);
+sprintf(rut,"%d",i);
+outtextxy(midx+150, midy+20,rut);
+outtextxy(midx+10, midy+120," press any key to start");
+getch();
+cleardevice();
+
+
+rectangle(0,0,639,479);
+rectangle(2,2,637,476);
+line(639/4,0,639/4,476);
+line(639/2,0,639/2,476);
+
+setfillstyle(SOLID_FILL,LIGHTGREEN);
+bar(0,0,639/4,479/4);
+bar(639-639/4,0,639,479/4);
+bar(639-639/4,479-479/4,639,479);
+bar(0,479,639/4,479-479/4);
+line(639-639/4,0,639-639/4,476);
+line(639/4+2,2,639/4+2,478);
+line(639/2+2,2,639/2+2,478);
+line(639-639/4+2,0,639-639/4+2,478);
+line(0,479/4,639,479/4);
+line(0,479/2,639,479/2);
+line(0,479-479/4,639,479-479/4);
+setfillstyle(LTSLASH_FILL,WHITE);
+bar(639/4,479/4,639-639/4,479-479/4);
+
+settextstyle(0, HORIZ_DIR, 1);
+setcolor(WHITE);
+outtextxy(639/4+45,479/4-40,"A");
+trafic(639/4+45,479/4);
+setfillstyle(SOLID_FILL,WHITE);
+bar(639/4+45,479-479/4+45-40,639/4+45-40,479-479/4+45-20);
+settextstyle(0, HORIZ_DIR, 1);
+outtextxy(639/4+45-20,479-479/4+45-30,"CARS");
+
+setfillstyle(SOLID_FILL,WHITE);
+bar(639-639/4,479/4,639-639/4-40,479/4-20);
+settextstyle(DEFAULT_FONT, HORIZ_DIR, 1);
+outtextxy(639-639/4-20,479/4-10,"CARS");
+trafic(639-639/4,479-479/4+45);
+setcolor(WHITE);
+outtextxy(639-639/4+15,479-479/4+45-40,"D");
+
+
+
+setcolor(WHITE);
+outtextxy(639-639/4+45,479/4+45-40,"B");
+trafic(639-639/4+45,479/4+45);
+setfillstyle(SOLID_FILL,WHITE);
+bar(639/4,479/4+45,639/4-40,479/4+45-20);
+settextstyle(0, HORIZ_DIR, 1);
+outtextxy(639/4-20,479/4+45-10,"CARS");
+
+setcolor(WHITE);
+settextstyle(0, HORIZ_DIR, 1);
+outtextxy(639/4,479-479/4-40,"C");
+trafic(639/4,479-479/4);
+setfillstyle(SOLID_FILL,WHITE);
+bar(639-639/4+45,479-479/4,639-639/4+45-40,479-479/4-20);
+settextstyle(0, HORIZ_DIR, 1);
+outtextxy(639-639/4+45-20,479-479/4-10,"CARS");
+
+
+
+
+
+
+sound(145);
+delay(2000);
+
+
+nosound();
+
+*/
+for(i=0;i<1;i++)
+{
+a=((rand())%15);
+setcolor(WHITE);
+settextstyle(1, HORIZ_DIR, 1);
+sprintf(rut,"%d",a);
+outtextxy(639/4+45+10,479-479/4+45-30,rut);
+
+
+
+
+
+delay(1000);
+d=((rand())%15);
+setcolor(WHITE);
+settextstyle(0, HORIZ_DIR, 1);
+sprintf(rut,"%d",d);
+outtextxy(639-639/4-60,479/4-10,rut);
+
+
+
+
+delay(1000);
+b=((rand())%15);
+setcolor(WHITE);
+settextstyle(0, HORIZ_DIR, 1);
+sprintf(rut,"%d",b);
+outtextxy(639/4-60,479/4+45-10,rut);
+
+
+
+
+delay(1000);
+c=((rand())%15);
+setcolor(WHITE);
+settextstyle(0, HORIZ_DIR, 1);
+sprintf(rut,"%d",c);
+outtextxy(639-639/4+55,479-479/4-10,rut);
+}
+
+getch();
+
+cleardevice();
+setcolor(WHITE);
+settextstyle(BOLD_FONT, HORIZ_DIR, 3);
+settextjustify(CENTER_TEXT, CENTER_TEXT);
+outtextxy(midx, midy-10, "now traffic signal will open ");
+outtextxy(midx, midy+40, "according to the NEED");
+settextstyle(SCRIPT_FONT, HORIZ_DIR, 3);
+outtextxy(midx, midy+80, "sensor detection");
+outtextxy(midx+10, midy+120," press any key to start");
+getch();
+
+cleardevice();
+draw();
+sprintf(rut,"%d",a);
+outtextxy(639/4+45+10,479-479/4+25,rut);
+sprintf(rut,"%d",d);
+outtextxy(639-639/4-60,479/4-10,rut);
+sprintf(rut,"%d",b);
+outtextxy(639/4-60,479/4+45-10,rut);
+sprintf(rut,"%d",c);
+outtextxy(639-639/4+55,479-479/4-10,rut);
+
+
+for(i=0;i<3;i++)
+{
+
+if(a>b && a>c && a>d)
+{
+
+timer(639/4+45,479/4,4);
+draw_cir(639/4+45,479/4);
+
+timer(639/4+45-10,479/4,14);
+cir_gr(639/4+45,479/4);
+
+
+timer(639/4+45-10,479/4,2);
+
+delay(2000);
+
+
+
+
+
+setfillstyle(SOLID_FILL,BLACK);
+bar(639/4+45,479-479/4+15,639/4+45+35,479-479/4+65);
+
+setcolor(WHITE);
+outtextxy(639/4+45,479-479/4+15,"0");
+
+trafic(639/4+45,479/4);
+a=0;
+}
+
+
+
+if(c>b && c>d)
+{
+timer(639/4-10,479-479/4,4);
+draw_cir(639/4,479-479/4);
+//draw_cir(639-639/4+45,479-479/4);
+timer(639/4-10,479-479/4,14);
+cir_gr(639/4,479-479/4);
+//cir_gr(639-639/4+45,479-479/4);
+
+timer(639/4-10,479-479/4,2);
+
+c=0;
+trafic(639/4,479-479/4);
+//trafic(639-639/4+45,479-479/4);
+setcolor(BLACK);
+setfillstyle(SOLID_FILL,BLACK);		      //signal b
+bar(639-639/4+65,479-479/4-25,639-639/4+45,479-479/4);
+
+setcolor(WHITE);
+outtextxy(639-639/4+65-10,479-479/4-25+10,"0");
+}
+
+delay(2000);
+
+if(b>d)
+{
+timer(639-639/4+45-10,479/4+45,4);
+draw_cir(639-639/4+45,479/4+45);
+
+timer(639-639/4+45-10,479/4+45,14);
+cir_gr(639-639/4+45,479/4+45);
+
+delay(2000);
+timer(639-639/4+45-10,479/4+45,2);
+
+trafic(639-639/4+45,479/4+45);
+setfillstyle(SOLID_FILL,BLACK);
+bar(639/4-80,479/4+65,639/4-40,479/4);
+
+setcolor(WHITE);
+outtextxy(639/4-60,479/4+25,"0");
+
+b=0;
+}
+
+
+
+
+
+if(d>b)
+{
+timer(639-639/4-10,479-479/4+45,4);
+
+draw_cir(639-639/4,479-479/4+45);
+timer(639-639/4-10,479-479/4+45,14);
+
+cir_gr(639-639/4,479-479/4+45);
+timer(639-639/4-10,479-479/4+45,2);
+
+trafic(639-639/4,479-479/4+45);
+setfillstyle(SOLID_FILL,BLACK);    //signal d
+bar(639-639/4-80,479/4-30,639-639/4-60+20,479/4);
+
+
+setcolor(WHITE);
+outtextxy(639-639/4-80+25,479/4-30+25,"0");
+d=0;
+}
+if(a==0&&b==0&&c==0&&d==0)
+{
+//call();
+setfillstyle(SOLID_FILL,BLACK);
+bar(639/4-80,479/4+65,639/4-40,479/4);
+bar(639/4+45,479-479/4+35,639/4+45+35,479-479/4+65);
+bar(639-639/4-80,479/4-30,639-639/4-60+20,479/4);
+bar(639-639/4+65,479-479/4-25,639-639/4+45,479-479/4);
+bar(639/4+45,479-479/4+15,639/4+45+35,479-479/4+65);
+call();
+
+}
+}
+for(i=0;i<1;i++)
+{
+if(a>b&&a>c&&a>d)
+{
+emer[i]='A';
+
+}
+if(b>c&&b>d)
+{
+emer[i]='B';
+}
+if(c>d)
+{
+emer[i]='C';
+}
+else
+{
+emer[i]='D';
+}
+}
+
+
+getch();
+
+setfillstyle(SOLID_FILL,RED);
+bar(639-639/4,0,639,479/4);
+setcolor(WHITE);
+settextstyle(14, HORIZ_DIR, 1);
+outtextxy((639-639/4+639)/2-40,479/8,"EMERGENCY");
+
+
+setcolor(LIGHTGREEN);
+rectangle(0,0,639,479);
+rectangle(2,2,637,476);
+line(639/4,0,639/4,476);
+line(639/2,0,639/2,476);
+setfillstyle(SOLID_FILL,WHITE);
+bar(0,0,639/4,479/4);
+bar(639-639/4,479-479/4,639,479);
+bar(0,479,639/4,479-479/4);
+line(639-639/4,0,639-639/4,476);
+line(639/4+2,2,639/4+2,478);
+line(639/2+2,2,639/2+2,478);
+line(639-639/4+2,0,639-639/4+2,478);
+line(0,479/4,639,479/4);
+line(0,479/2,639,479/2);
+line(0,479-479/4,639,479-479/4);
+setfillstyle(LTSLASH_FILL,LIGHTGREEN);
+bar(639/4,479/4,639-639/4,479-479/4);
+
+
+getch();
+cleardevice();
+
+setcolor(1);
+settextstyle(0, HORIZ_DIR, 3);
+outtextxy(midx-60,midy-20,"ENMERGENCY");
+outtextxy(midx-120,midy,"to be conveyed");
+outtextxy(midx-120,midy+20," to next signal");
+outtextxy(midx-120,midy+40,"sensor detection");
+setcolor(13);
+outtextxy(midx-120,midy+60,"from signal number");
+outtextxy(midx-120,midy+80,emer);
+getch();
+cleardevice();
+draw();
+
+
+
+
+for(i=0;i<1;i++)
+{
+setcolor(BLACK);
+bar(639/4+45,479-479/4+35,639/4+75,479-479/4+55);
+setcolor(WHITE);
+settextstyle(1, HORIZ_DIR, 1);
+outtextxy(639/4+45+10,479-479/4+45-35,"1");
+
+
+setcolor(BLACK);
+outtextxy(639-639/4-80,479/4-30,"0");
+b=((rand())%15);
+setcolor(WHITE);
+settextstyle(0, HORIZ_DIR, 1);
+outtextxy(639/4-60,479/4+45-10,"0");
+
+
+
+setcolor(BLACK);
+outtextxy(639/4-80,479/4+45,"0");
+c=((rand())%15);
+setcolor(WHITE);
+settextstyle(0, HORIZ_DIR, 1);
+sprintf(rut,"%d",c);
+outtextxy(639-639/4+55,479-479/4-10,rut);
+
+
+setcolor(BLACK);
+outtextxy(639-639/4+65,479-479/4-25,"0");
+d=((rand())%15);
+setcolor(WHITE);
+settextstyle(0, HORIZ_DIR, 1);
+sprintf(rut,"%d",d);
+outtextxy(639-639/4-60,479/4-10,rut);
+
+
+}
+
+
+
+
+
+
+
+
+
+timer(639/4+45,479/4,4);
+draw_cir(639/4+45,479/4);
+
+timer(639/4+45-10,479/4,14);
+cir_gr(639/4+45,479/4);
+
+
+timer(639/4+45-10,479/4,2);
+
+delay(2000);
+
+/*
+}
+
+}
+setfillstyle(SOLID_FILL,BLACK);
+bar(639/4+45,479-479/4+35,639/4+45+30,479-479/4+65);
+
+setcolor(WHITE);
+outtextxy(639/4+45,479-479/4+35,"0");
+
+trafic(639/4+45,479/4);
+
+
+
+setcolor(WHITE);
+settextstyle(SCRIPT_FONT, HORIZ_DIR, 3);
+outtextxy(midx, midy+200, "Press any key to exit...");
+
+getch();
+
+if(e=='2')
+{
+
+cleardevice();
+rectangle(0,0,639,479);
+rectangle(2,2,637,476);
+line(639/4,0,639/4,476);
+line(639/2,0,639/2,476);
+
+setfillstyle(SOLID_FILL,LIGHTGREEN);
+bar(0,0,639/4,479/4);
+bar(639-639/4,0,639,479/4);
+bar(639-639/4,479-479/4,639,479);
+bar(0,479,639/4,479-479/4);
+line(639-639/4,0,639-639/4,476);
+line(639/4+2,2,639/4+2,478);
+line(639/2+2,2,639/2+2,478);
+line(639-639/4+2,0,639-639/4+2,478);
+line(0,479/4,639,479/4);
+line(0,479/2,639,479/2);
+line(0,479-479/4,639,479-479/4);
+setfillstyle(LTSLASH_FILL,WHITE);
+bar(639/4,479/4,639-639/4,479-479/4);
+
+setcolor(WHITE);
+outtextxy(639/4+45,479/4-40,"A");
+trafic(639/4+45,479/4);
+setfillstyle(SOLID_FILL,WHITE);
+bar(639/4+45,479-479/4+45-40,639/4+45-40,479-479/4+45-20);
+settextstyle(0, HORIZ_DIR, 1);
+outtextxy(639/4+45-20,479-479/4+45-30,"CARS");
+
+
+setcolor(WHITE);
+outtextxy(639-639/4+45,479/4+45-40,"C");
+trafic(639-639/4+45,479/4+45);
+setfillstyle(SOLID_FILL,WHITE);
+bar(639/4,479/4+45,639/4-40,479/4+45-20);
+settextstyle(0, HORIZ_DIR, 1);
+outtextxy(639/4-20,479/4+45-10,"CARS");
+
+setcolor(WHITE);
+outtextxy(639/4,479-479/4-40,"B");
+trafic(639/4,479-479/4);
+setfillstyle(SOLID_FILL,WHITE);
+bar(639-639/4+45,479-479/4,639-639/4+45-40,479-479/4-20);
+settextstyle(0, HORIZ_DIR, 1);
+outtextxy(639-639/4+45-20,479-479/4-10,"CARS");
+
+setfillstyle(SOLID_FILL,WHITE);
+bar(639-639/4,479/4,639-639/4-40,479/4-20);
+settextstyle(DEFAULT_FONT, HORIZ_DIR, 1);
+outtextxy(639-639/4-20,479/4-10,"CARS");
+trafic(639-639/4,479-479/4+45);
+setcolor(WHITE);
+outtextxy(639-639/4,479-479/4+45-40,"D");
+
+
+
+//srand(time(0));
+
+
+
+sound(145);
+      delay(2000);
+
+
+   nosound();
+
+
+
+
+
+
+setcolor(WHITE);
+settextstyle(0, HORIZ_DIR, 1);
+
+
+for(i=0;i<1;i++)
+{
+a=((rand())%15);
+setcolor(WHITE);
+settextstyle(1, HORIZ_DIR, 1);
+sprintf(rut,"%d",a);
+outtextxy(639/4+45+10,479-479/4+45-30,rut);
+
+
+
+
+
+delay(1000);
+d=((rand())%15);
+setcolor(WHITE);
+settextstyle(0, HORIZ_DIR, 1);
+sprintf(rut,"%d",d);
+outtextxy(639-639/4-60,479/4-10,rut);
+
+
+
+
+delay(1000);
+b=((rand())%15);
+setcolor(WHITE);
+settextstyle(0, HORIZ_DIR, 1);
+sprintf(rut,"%d",b);
+outtextxy(639/4-60,479/4+45-10,rut);
+
+
+
+
+delay(1000);
+c=((rand())%15);
+setcolor(WHITE);
+settextstyle(0, HORIZ_DIR, 1);
+sprintf(rut,"%d",c);
+outtextxy(639-639/4+55,479-479/4-10,rut);
+
+setcolor(WHITE);
+
+for(i=0;i<4;i++)
+{
+
+if(a>b && a>c && a>d)
+{
+
+timer(639/4+45,479/4,4);
+draw_cir(639/4+45,479/4);
+
+timer(639/4+45-10,479/4,14);
+cir_gr(639/4+45,479/4);
+
+
+timer(639/4+45-10,479/4,2);
+
+delay(2000);
+
+
+
+
+
+setfillstyle(SOLID_FILL,BLACK);
+bar(639/4+45,479-479/4+35,639/4+45+35,479-479/4+65);
+
+setcolor(WHITE);
+outtextxy(639/4+25,479-479/4+35,"0");
+
+trafic(639/4+45,479/4);
+a=0;
+}
+
+
+
+if(c>b && c>d)
+{
+timer(639/4-10,479-479/4,4);
+draw_cir(639/4,479-479/4);
+//draw_cir(639-639/4+45,479-479/4);
+timer(639/4-10,479-479/4,14);
+cir_gr(639/4,479-479/4);
+//cir_gr(639-639/4+45,479-479/4);
+
+timer(639/4-10,479-479/4,2);
+
+c=0;
+trafic(639/4,479-479/4);
+//trafic(639-639/4+45,479-479/4);
+setcolor(BLACK);
+setfillstyle(SOLID_FILL,BLACK);		      //signal b
+bar(639-639/4+65,479-479/4-25,639-639/4+45,479-479/4);
+
+setcolor(WHITE);
+outtextxy(639-639/4+25,479-479/4,"0");
+}
+
+delay(2000);
+
+if(b>d)
+{
+timer(639-639/4+45-10,479/4+45,4);
+draw_cir(639-639/4+45,479/4+45);
+
+timer(639-639/4+45-10,479/4+45,14);
+cir_gr(639-639/4+45,479/4+45);
+
+delay(2000);
+timer(639-639/4+45-10,479/4+45,2);
+
+trafic(639-639/4+45,479/4+45);
+setfillstyle(SOLID_FILL,BLACK);
+bar(639/4-80,479/4+45,639/4-40,479/4-5);
+
+setcolor(WHITE);
+outtextxy(639/4-120,479/4+65,"0");
+
+b=0;
+}
+
+
+
+
+
+if(d>b)
+{
+timer(639-639/4-10,479-479/4+45,4);
+
+draw_cir(639-639/4,479-479/4+45);
+timer(639-639/4-10,479-479/4+45,14);
+
+cir_gr(639-639/4,479-479/4+45);
+timer(639-639/4-10,479-479/4+45,2);
+
+trafic(639-639/4,479-479/4+45);
+setfillstyle(SOLID_FILL,BLACK);    //signal d
+bar(639-639/4-80,479/4-30,639-639/4-60+20,479/4);
+
+
+setcolor(WHITE);
+outtextxy(639-639/4-60,479/4-10,"0");
+d=0;
+}
+else
+{
+call();
+}
+}
+
+setfillstyle(SOLID_FILL,RED);
+bar(639-639/4,0,639,479/4);
+setcolor(WHITE);
+settextstyle(14, HORIZ_DIR, 1);
+outtextxy((639-639/4+639)/2-40,479/8,"EMERGENCY");
+
+
+setcolor(LIGHTGREEN);
+rectangle(0,0,639,479);
+rectangle(2,2,637,476);
+line(639/4,0,639/4,476);
+line(639/2,0,639/2,476);
+setfillstyle(SOLID_FILL,WHITE);
+bar(0,0,639/4,479/4);
+bar(639-639/4,479-479/4,639,479);
+bar(0,479,639/4,479-479/4);
+line(639-639/4,0,639-639/4,476);
+line(639/4+2,2,639/4+2,478);
+line(639/2+2,2,639/2+2,478);
+line(639-639/4+2,0,639-639/4+2,478);
+line(0,479/4,639,479/4);
+line(0,479/2,639,479/2);
+line(0,479-479/4,639,479-479/4);
+setfillstyle(LTSLASH_FILL,LIGHTGREEN);
+bar(639/4,479/4,639-639/4,479-479/4);
+
+draw();
+call();
+
+*/
+
+setcolor(WHITE);
+   settextstyle(SCRIPT_FONT, HORIZ_DIR, 3);
+   outtextxy(midx, midy+200, "Press any key to exit...");
+//}
+
+
+
+
+closegraph();
+getch();
+
+}
+
+int trafic(x,y)
+{
+
+   setcolor(WHITE);
+   settextstyle(DEFAULT_FONT, HORIZ_DIR, 1);
+   circle(x-25,y-25, 25);
+   circle(x-25,y-25,23);
+   circle(x-25,y-25,21);
+   circle(x-25,y-25,22);
+   setfillstyle(SOLID_FILL,RED);
+   floodfill(x-25,y-25,WHITE);
+   setcolor(BLUE);
+   outtextxy(x-25,y-25,"STOP");
+   /*delay(2000);
+   setcolor(RED);
+   outtextxy(x-25,y-25,"STOP");
+   graphdefaults();
+   setcolor(WHITE);
+   circle(x-25,y-25, 25);
+   setfillstyle(SOLID_FILL,YELLOW);
+   floodfill(x-25,y-25,WHITE);
+   setcolor(BLUE);
+   outtextxy(x-45,y-30,"READY");
+   delay(2000);
+   setcolor(YELLOW);
+   outtextxy(x-45,y-30,"READY");
+   setcolor(WHITE);
+   circle(x-25,y-25, 25);
+   setfillstyle(SOLID_FILL,GREEN);
+   floodfill(x-25,y-25,WHITE);
+   setcolor(BLUE);
+   outtextxy(x-25,y-25,"GO");      */
+   return 0;
+}
+
+int draw_cir(x,y)
+{
+   setcolor(RED);
+   outtextxy(x-25,y-25,"STOP");
+   graphdefaults();
+   setcolor(WHITE);
+   circle(x-25,y-25, 25);
+   setfillstyle(SOLID_FILL,YELLOW);
+   floodfill(x-25,y-25,WHITE);
+   setcolor(BLUE);
+   outtextxy(x-45,y-30,"READY");
+
+   return 0;
+}
+
+
+int cir_gr(x,y)
+{
+
+   setcolor(YELLOW);
+   outtextxy(x-45,y-30,"READY");
+   setcolor(WHITE);
+   circle(x-25,y-25, 25);
+   setfillstyle(SOLID_FILL,GREEN);
+   floodfill(x-25,y-25,WHITE);
+   setcolor(BLUE);
+   outtextxy(x-25,y-25,"GO");
+   return 0;
+}
+int timer(x,y,b)
+{
+char rt[5],uy[5];
+int i,j;
+for(i=6;i>0;i--)
+{
+setcolor(WHITE);
+settextstyle(0, HORIZ_DIR, 1);
+sprintf(rt,"%d",i);
+sprintf(uy,"%d",i);
+outtextxy(x-15,y-15,rt);
+
+delay(1000);
+setcolor(b);
+outtextxy(x-15,y-15,rt);
+
+ }
+
+
+
+
+return 0;
+}
+
+
+int draw()
+{
+rectangle(0,0,639,479);
+rectangle(2,2,637,476);
+line(639/4,0,639/4,476);
+line(639/2,0,639/2,476);
+
+setfillstyle(SOLID_FILL,LIGHTGREEN);
+bar(0,0,639/4,479/4);
+bar(639-639/4,0,639,479/4);
+bar(639-639/4,479-479/4,639,479);
+bar(0,479,639/4,479-479/4);
+line(639-639/4,0,639-639/4,476);
+line(639/4+2,2,639/4+2,478);
+line(639/2+2,2,639/2+2,478);
+line(639-639/4+2,0,639-639/4+2,478);
+line(0,479/4,639,479/4);
+line(0,479/2,639,479/2);
+line(0,479-479/4,639,479-479/4);
+setfillstyle(LTSLASH_FILL,WHITE);
+bar(639/4,479/4,639-639/4,479-479/4);
+
+setcolor(WHITE);
+outtextxy(639/4+45,479/4-40,"A");
+trafic(639/4+45,479/4);
+setfillstyle(SOLID_FILL,WHITE);
+bar(639/4+45,479-479/4+45-40,639/4+45-40,479-479/4+45-20);
+settextstyle(0, HORIZ_DIR, 1);
+outtextxy(639/4+45-20,479-479/4+45-30,"CARS");
+
+
+setcolor(WHITE);
+outtextxy(639-639/4+45,479/4+45-40,"C");
+trafic(639-639/4+45,479/4+45);
+setfillstyle(SOLID_FILL,WHITE);
+bar(639/4,479/4+45,639/4-40,479/4+45-20);
+settextstyle(0, HORIZ_DIR, 1);
+outtextxy(639/4-20,479/4+45-10,"CARS");
+
+setcolor(WHITE);
+outtextxy(639/4,479-479/4-40,"B");
+trafic(639/4,479-479/4);
+setfillstyle(SOLID_FILL,WHITE);
+bar(639-639/4+45,479-479/4,639-639/4+45-40,479-479/4-20);
+settextstyle(0, HORIZ_DIR, 1);
+outtextxy(639-639/4+45-20,479-479/4-10,"CARS");
+
+setfillstyle(SOLID_FILL,WHITE);
+bar(639-639/4,479/4,639-639/4-40,479/4-20);
+settextstyle(DEFAULT_FONT, HORIZ_DIR, 1);
+outtextxy(639-639/4-20,479/4-10,"CARS");
+trafic(639-639/4,479-479/4+45);
+setcolor(WHITE);
+outtextxy(639-639/4,479-479/4+45-40,"D");
+
+
+
+
+
+sound(145);
+delay(2000);
+
+
+nosound();
+
+return 0;
+}
+int call()
+{
+int i;
+char rut[50];
+for(i=0;i<1;i++)
+{
+setcolor(BLACK);
+bar(639/4+45,479-479/4+35,639/4+75,479-479/4+55);
+a=((rand())%15);
+setcolor(WHITE);
+settextstyle(1, HORIZ_DIR, 1);
+sprintf(rut,"%d",a);
+outtextxy(639/4+45+10,479-479/4+45-30,rut);
+
+
+setcolor(BLACK);
+outtextxy(639-639/4-80,479/4-30,"0");
+b=((rand())%15);
+setcolor(WHITE);
+settextstyle(0, HORIZ_DIR, 1);
+sprintf(rut,"%d",b);
+outtextxy(639/4-60,479/4+45-10,rut);
+
+
+
+setcolor(BLACK);
+outtextxy(639/4-80,479/4+45,"0");
+c=((rand())%15);
+setcolor(WHITE);
+settextstyle(0, HORIZ_DIR, 1);
+sprintf(rut,"%d",c);
+outtextxy(639-639/4+55,479-479/4-10,rut);
+
+
+setcolor(BLACK);
+outtextxy(639-639/4+65,479-479/4-25,"0");
+d=((rand())%15);
+setcolor(WHITE);
+settextstyle(0, HORIZ_DIR, 1);
+sprintf(rut,"%d",d);
+outtextxy(639-639/4-60,479/4-10,rut);
+
+
+}
+return 0;
+
+}
